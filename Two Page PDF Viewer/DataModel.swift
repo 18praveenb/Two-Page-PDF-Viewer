@@ -10,13 +10,17 @@ import Foundation
 import PDFKit
 
 class DataModel {
-    static var pdfView: PDFView? = nil
+    static var pdfView: SmartPDFView? = nil
     static var pdfDocument: PDFDocument? = nil {
         didSet {
-            pdfView?.displayMode = .twoUpContinuous
-            pdfView?.autoScales = true
             pdfView?.document = pdfDocument
-            pdfView?.autoScales = true
+            pdfView?.refresh()
+        }
+    }
+    static var viewMode: PDFDisplayMode = .singlePageContinuous {
+        didSet {
+            pdfView?.displayMode = viewMode
+            pdfView?.refresh()
         }
     }
 }

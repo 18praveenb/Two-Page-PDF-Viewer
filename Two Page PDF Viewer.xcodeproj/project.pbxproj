@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC8638B21F253B4600F371D5 /* SmartPDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8638B11F253B4600F371D5 /* SmartPDFView.swift */; };
 		AC86D79D1F23E37F0031EEF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86D79C1F23E37F0031EEF5 /* AppDelegate.swift */; };
 		AC86D79F1F23E37F0031EEF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC86D79E1F23E37F0031EEF5 /* ViewController.swift */; };
 		AC86D7A21F23E37F0031EEF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC86D7A01F23E37F0031EEF5 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC8638B11F253B4600F371D5 /* SmartPDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPDFView.swift; sourceTree = "<group>"; };
 		AC86D7991F23E37F0031EEF5 /* Two Page PDF Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Two Page PDF Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC86D79C1F23E37F0031EEF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC86D79E1F23E37F0031EEF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				AC86D79C1F23E37F0031EEF5 /* AppDelegate.swift */,
 				ACEA42131F250C970052DD1A /* DataModel.swift */,
 				AC86D79E1F23E37F0031EEF5 /* ViewController.swift */,
+				AC8638B11F253B4600F371D5 /* SmartPDFView.swift */,
 				AC86D7A01F23E37F0031EEF5 /* Main.storyboard */,
 				ACE3F3A31F23E9BB0057C5EE /* PDF.pdf */,
 				AC86D7A31F23E37F0031EEF5 /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC86D79F1F23E37F0031EEF5 /* ViewController.swift in Sources */,
+				AC8638B21F253B4600F371D5 /* SmartPDFView.swift in Sources */,
 				AC86D79D1F23E37F0031EEF5 /* AppDelegate.swift in Sources */,
 				ACEA42141F250C970052DD1A /* DataModel.swift in Sources */,
 			);
