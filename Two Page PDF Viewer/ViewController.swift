@@ -16,14 +16,17 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
     @IBOutlet var pdfView: SmartPDFView!
     @IBOutlet var toolbar: UIToolbar!
     
+    var twoPageTitle: String? = nil
+    
     //MARK: IBActions
     @IBAction func setViewMode(_ sender: UIBarButtonItem) {
         if DataModel.viewMode == .twoUpContinuous {
             DataModel.viewMode = .singlePageContinuous
-            sender.title = "View as two pages"
+            sender.title = twoPageTitle
         } else {
+            if twoPageTitle == nil { twoPageTitle = sender.title }
             DataModel.viewMode = .twoUpContinuous
-            sender.title = "View as single page"
+            sender.title = "One page view"
         }
     }
     

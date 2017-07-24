@@ -25,13 +25,13 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <barButtonItem title="View as two pages" id="MOa-yG-a4Q">
+                                    <barButtonItem title="Two page view" id="MOa-yG-a4Q">
                                         <connections>
                                             <action selector="setViewMode:" destination="BYZ-38-t0r" id="ATf-ee-EH7"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fsN-8r-OGT"/>
-                                    <barButtonItem title="Choose Document..." id="J56-k5-JVA">
+                                    <barButtonItem title="Choose document" id="J56-k5-JVA">
                                         <connections>
                                             <action selector="setDocument:" destination="BYZ-38-t0r" id="Qvh-da-kyl"/>
                                         </connections>
