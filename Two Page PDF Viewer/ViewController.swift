@@ -50,7 +50,10 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
     }
     
     @objc func toggleToolbarDisplay() {
-        toolbar.isHidden = !toolbar.isHidden
+        let animator = UIViewPropertyAnimator(duration: 0.2, curve: UIViewAnimationCurve.easeInOut) {
+            self.toolbar.alpha = self.toolbar.alpha == 0 ? 1 : 0
+        }
+        animator.startAnimation()
     }
     
     //MARK: Drop Delegate
