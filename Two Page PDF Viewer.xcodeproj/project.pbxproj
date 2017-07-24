@@ -14,7 +14,6 @@
 		AC86D7A41F23E37F0031EEF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC86D7A31F23E37F0031EEF5 /* Assets.xcassets */; };
 		AC86D7A71F23E37F0031EEF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC86D7A51F23E37F0031EEF5 /* LaunchScreen.storyboard */; };
 		ACEA42141F250C970052DD1A /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEA42131F250C970052DD1A /* DataModel.swift */; };
-		ACF578FC1F2400780009A8EF /* PDF.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ACE3F3A31F23E9BB0057C5EE /* PDF.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +25,6 @@
 		AC86D7A31F23E37F0031EEF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC86D7A61F23E37F0031EEF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC86D7A81F23E37F0031EEF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACE3F3A31F23E9BB0057C5EE /* PDF.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PDF.pdf; sourceTree = "<group>"; };
 		ACEA42131F250C970052DD1A /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +63,6 @@
 				AC86D79E1F23E37F0031EEF5 /* ViewController.swift */,
 				AC8638B11F253B4600F371D5 /* SmartPDFView.swift */,
 				AC86D7A01F23E37F0031EEF5 /* Main.storyboard */,
-				ACE3F3A31F23E9BB0057C5EE /* PDF.pdf */,
 				AC86D7A31F23E37F0031EEF5 /* Assets.xcassets */,
 				AC86D7A51F23E37F0031EEF5 /* LaunchScreen.storyboard */,
 				AC86D7A81F23E37F0031EEF5 /* Info.plist */,
@@ -133,7 +130,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC86D7A71F23E37F0031EEF5 /* LaunchScreen.storyboard in Resources */,
-				ACF578FC1F2400780009A8EF /* PDF.pdf in Resources */,
 				AC86D7A41F23E37F0031EEF5 /* Assets.xcassets in Resources */,
 				AC86D7A21F23E37F0031EEF5 /* Main.storyboard in Resources */,
 			);

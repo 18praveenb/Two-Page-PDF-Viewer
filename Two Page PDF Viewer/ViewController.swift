@@ -42,7 +42,7 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
         super.viewDidLoad()
         
         DataModel.pdfView = pdfView
-        DataModel.pdfDocument = DataModel.pdfDocument ?? PDFDocument(url: Bundle.main.url(forResource: "PDF", withExtension: "pdf")!)!
+        DataModel.pdfDocument = DataModel.pdfDocument
         
         pdfView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleToolbarDisplay)))
         pdfView.addInteraction(UIDropInteraction(delegate: self))

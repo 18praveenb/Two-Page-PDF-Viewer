@@ -19,8 +19,10 @@ class DataModel {
     }
     static var viewMode: PDFDisplayMode = .singlePageContinuous {
         didSet {
+            let page = pdfView?.currentPage
             pdfView?.displayMode = viewMode
             pdfView?.refresh()
+            if let uPage = page {pdfView?.go(to: uPage)}
         }
     }
 }
