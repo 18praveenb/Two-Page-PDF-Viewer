@@ -14,13 +14,14 @@ class DataModel {
     static var pdfDocument: PDFDocument? = nil {
         didSet {
             pdfView?.document = pdfDocument
+            pdfView?.displayMode = .twoUpContinuous
             pdfView?.refresh()
         }
     }
-    static var viewMode: PDFDisplayMode = .singlePageContinuous {
+    static var coverPage: Bool = false {
         didSet {
             let page = pdfView?.currentPage
-            pdfView?.displayMode = viewMode
+            pdfView?.displaysAsBook = coverPage
             pdfView?.refresh()
             if let uPage = page {pdfView?.go(to: uPage)}
         }

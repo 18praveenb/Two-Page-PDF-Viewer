@@ -14,20 +14,15 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
     
     //MARK: IBOutlets
     @IBOutlet var pdfView: SmartPDFView!
+    @IBOutlet var coverPage: UIBarButtonItem!
     @IBOutlet var toolbar: UIToolbar!
+    
     
     var twoPageTitle: String? = nil
     
     //MARK: IBActions
     @IBAction func setViewMode(_ sender: UIBarButtonItem) {
-        if DataModel.viewMode == .twoUpContinuous {
-            DataModel.viewMode = .singlePageContinuous
-            sender.title = twoPageTitle
-        } else {
-            if twoPageTitle == nil { twoPageTitle = sender.title }
-            DataModel.viewMode = .twoUpContinuous
-            sender.title = "One page view"
-        }
+        toggleDisplayMode(sender)
     }
     
     @IBAction func setDocument(_ sender: UIBarButtonItem) {
@@ -47,6 +42,18 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
         pdfView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleToolbarDisplay)))
         pdfView.addInteraction(UIDropInteraction(delegate: self))
         
+        toggleDisplayMode(coverPage)
+        
+    }
+    
+    func toggleDisplayMode(_ sender: UIBarButtonItem) {
+        if DataModel.coverPage == true {
+            DataModel.coverPage = false
+            sender.title = "Show cover page"
+        } else {
+            DataModel.coverPage = true
+            sender.title = "No cover page"
+        }
     }
     
     @objc func toggleToolbarDisplay() {
