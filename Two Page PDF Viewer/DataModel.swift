@@ -20,10 +20,23 @@ class DataModel {
     }
     static var coverPage: Bool = false {
         didSet {
-            let page = pdfView?.currentPage
+            
+            let pages = pdfView?.visiblePages()
+            
+            let page: PDFPage?
+            if pages == nil || pages!.count == 0 {
+                page = nil
+            } else {
+                // This method will cause the page to continue to increase, so every other time, we reset it.
+                var index = pages!.count/2
+                if coverPage { index -= 1 }
+                page = pages![index]
+            }
+            
             pdfView?.displaysAsBook = coverPage
             pdfView?.refresh()
-            if let uPage = page {pdfView?.go(to: uPage)}
+            if let page = page { pdfView?.go(to: page) }
+            
         }
     }
 }
