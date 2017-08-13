@@ -18,7 +18,7 @@ class DataModel {
             pdfView?.refresh()
         }
     }
-    static var coverPage: Bool = false {
+    static var coverPage: Bool = true {
         didSet {
             
             let pages = pdfView?.visiblePages()
