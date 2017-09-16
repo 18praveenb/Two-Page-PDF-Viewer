@@ -12,6 +12,8 @@ import PDFKit
 class SmartPDFView: PDFView {
     
     /// refresh
+    /// originally used when switching between 1 and 2 pages view was allowed
+    /// to ensure the 2 page view was centered correctly
     func refresh() {
         self.autoScales = true
         let document = self.document

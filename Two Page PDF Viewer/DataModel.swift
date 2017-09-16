@@ -29,7 +29,9 @@ class DataModel {
         let pages = pdfView?.visiblePages()
         
         let page: PDFPage?
-        if pages == nil || pages!.count == 0 {
+        // If there are no visible pages, go back to the beginning.
+        // If there is only one page it would cause a crash before.
+        if pages == nil || pages!.count < 2 {
             page = nil
         } else {
             // This method will cause the page to continue to increase, so every other time, we reset it.
