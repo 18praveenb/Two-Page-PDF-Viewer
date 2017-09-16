@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
     @IBOutlet var coverPage: UIBarButtonItem!
     @IBOutlet var toolbar: UIToolbar!
     
-    
+    var picker: UIDocumentPickerViewController?
     var twoPageTitle: String? = nil
     
     //MARK: IBActions
@@ -26,9 +26,9 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
     }
     
     @IBAction func setDocument(_ sender: UIBarButtonItem) {
-        let picker = UIDocumentPickerViewController(documentTypes: ["com.adobe.pdf"], in: UIDocumentPickerMode.import)
-        picker.delegate = self
-        present(picker, animated: true) { self.didReturnFromPicker = true }
+        picker = UIDocumentPickerViewController(documentTypes: ["com.adobe.pdf"], in: UIDocumentPickerMode.import)
+        picker!.delegate = self
+        present(picker!, animated: true) {self.picker = nil}
     }
     
     @IBAction func fit(_ sender: UIBarButtonItem) {
@@ -47,18 +47,6 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
         pdfView.addInteraction(UIDropInteraction(delegate: self))
         
         toggleDisplayMode(coverPage)
-        
-    }
-    
-    var didReturnFromPicker = false
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        if DataModel.pdfDocument == nil && !didReturnFromPicker {
-            setDocument(coverPage)
-        }
-        
-        didReturnFromPicker = false
         
     }
     
