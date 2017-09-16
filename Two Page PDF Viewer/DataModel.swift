@@ -10,7 +10,9 @@ import Foundation
 import PDFKit
 
 class DataModel {
+    
     static var pdfView: SmartPDFView? = nil
+    
     static var pdfDocument: PDFDocument? = nil {
         didSet {
             pdfView?.document = pdfDocument
@@ -18,25 +20,27 @@ class DataModel {
             pdfView?.refresh()
         }
     }
+    
     static var coverPage: Bool = true {
-        didSet {
-            
-            let pages = pdfView?.visiblePages()
-            
-            let page: PDFPage?
-            if pages == nil || pages!.count == 0 {
-                page = nil
-            } else {
-                // This method will cause the page to continue to increase, so every other time, we reset it.
-                var index = pages!.count/2
-                if coverPage { index -= 1 }
-                page = pages![index]
-            }
-            
-            pdfView?.displaysAsBook = coverPage
-            pdfView?.refresh()
-            if let page = page { pdfView?.go(to: page) }
-            
-        }
+        didSet { fit() }
     }
+    
+    static func fit() {
+        let pages = pdfView?.visiblePages()
+        
+        let page: PDFPage?
+        if pages == nil || pages!.count == 0 {
+            page = nil
+        } else {
+            // This method will cause the page to continue to increase, so every other time, we reset it.
+            var index = pages!.count/2
+            if coverPage { index -= 1 }
+            page = pages![index]
+        }
+        
+        pdfView?.displaysAsBook = coverPage
+        pdfView?.refresh()
+        if let page = page { pdfView?.go(to: page) }
+    }
+    
 }

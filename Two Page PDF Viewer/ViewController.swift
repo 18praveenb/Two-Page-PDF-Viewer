@@ -28,7 +28,11 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
     @IBAction func setDocument(_ sender: UIBarButtonItem) {
         let picker = UIDocumentPickerViewController(documentTypes: ["com.adobe.pdf"], in: UIDocumentPickerMode.import)
         picker.delegate = self
-        present(picker, animated: true) {}
+        present(picker, animated: true) { self.didReturnFromPicker = true }
+    }
+    
+    @IBAction func fit(_ sender: UIBarButtonItem) {
+        DataModel.fit()
     }
     
     //MARK: View Controller
@@ -46,10 +50,22 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
         
     }
     
+    var didReturnFromPicker = false
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if DataModel.pdfDocument == nil && !didReturnFromPicker {
+            setDocument(coverPage)
+        }
+        
+        didReturnFromPicker = false
+        
+    }
+    
     func toggleDisplayMode(_ sender: UIBarButtonItem) {
         if DataModel.coverPage == true {
             DataModel.coverPage = false
-            sender.title = "Show cover page"
+            sender.title = "Cover page"
         } else {
             DataModel.coverPage = true
             sender.title = "No cover page"
