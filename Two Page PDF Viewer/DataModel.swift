@@ -16,8 +16,7 @@ class DataModel {
     static var pdfDocument: PDFDocument? = nil {
         didSet {
             pdfView?.document = pdfDocument
-            pdfView?.displayMode = .twoUpContinuous
-            pdfView?.refresh()
+            fit()
         }
     }
     
@@ -25,8 +24,16 @@ class DataModel {
         didSet { fit() }
     }
     
+    static var showBreaks: Bool = true {
+        didSet { fit() }
+    }
+    
+    static var scrolling: Bool = true {
+        didSet { fit() }
+    }
+    
     static func fit() {
-        let pages = pdfView?.visiblePages()
+        let pages = pdfView?.visiblePages
         
         let page: PDFPage?
         // If there are no visible pages, go back to the beginning.
@@ -41,8 +48,20 @@ class DataModel {
         }
         
         pdfView?.displaysAsBook = coverPage
+        pdfView?.displayMode = scrolling ? .twoUpContinuous : .twoUp
+        pdfView?.displayDirection = scrolling ? .vertical : .horizontal
+        pdfView?.displaysPageBreaks = showBreaks
+        pdfView?.pageShadowsEnabled = false
         pdfView?.refresh()
         if let page = page { pdfView?.go(to: page) }
+    }
+    
+    static func goToPreviousPage() {
+        if pdfView?.canGoToPreviousPage == true { pdfView?.goToPreviousPage(nil) }
+    }
+    
+    static func goToNextPage() {
+        if pdfView?.canGoToNextPage == true { pdfView?.goToNextPage(nil) }
     }
     
 }

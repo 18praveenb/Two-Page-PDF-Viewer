@@ -31,8 +31,24 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
         present(picker!, animated: true) {self.picker = nil}
     }
     
+    @IBAction func toggleBreaks(_ sender: UIBarButtonItem) {
+        DataModel.showBreaks.toggle()
+    }
+    
+    @IBAction func toggleScrolling(_ sender: UIBarButtonItem) {
+        DataModel.scrolling.toggle()
+    }
+    
     @IBAction func fit(_ sender: UIBarButtonItem) {
         DataModel.fit()
+    }
+    
+    @objc func swipe(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .left || sender.direction == .up {
+            DataModel.goToNextPage()
+        } else if sender.direction == .right || sender.direction == .down {
+            DataModel.goToPreviousPage()
+        }
     }
     
     //MARK: View Controller
@@ -44,6 +60,12 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
         DataModel.pdfDocument = DataModel.pdfDocument
         
         pdfView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleToolbarDisplay)))
+        for direction in [UISwipeGestureRecognizer.Direction.up, .down, .left, .right] {
+            let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipe))
+            swipeGesture.direction = direction
+            pdfView.addGestureRecognizer(swipeGesture)
+        }
+        
         pdfView.addInteraction(UIDropInteraction(delegate: self))
         
         toggleDisplayMode(coverPage)
@@ -53,15 +75,15 @@ class ViewController: UIViewController, UIDropInteractionDelegate, UIDocumentPic
     func toggleDisplayMode(_ sender: UIBarButtonItem) {
         if DataModel.coverPage == true {
             DataModel.coverPage = false
-            sender.title = "Cover page"
+//            sender.title = "Cover page"
         } else {
             DataModel.coverPage = true
-            sender.title = "No cover page"
+//            sender.title = "No cover page"
         }
     }
     
     @objc func toggleToolbarDisplay() {
-        let animator = UIViewPropertyAnimator(duration: 0.2, curve: UIViewAnimationCurve.easeInOut) {
+        let animator = UIViewPropertyAnimator(duration: 0.2, curve: UIView.AnimationCurve.easeInOut) {
             self.toolbar.alpha = self.toolbar.alpha == 0 ? 1 : 0
         }
         animator.startAnimation()
